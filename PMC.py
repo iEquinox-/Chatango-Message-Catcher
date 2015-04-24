@@ -11,8 +11,8 @@ class Notify(object):
 					"None":  "SNALT"
 				}
 		self.Structure = """%(user)s: %(message)s"""
-		self.Session   = os.environ.get("DESKTOP_SESSION")
-		if str(self.Session) not in self.Support:
+		self.Session   = str(os.environ.get("DESKTOP_SESSION"))
+		if self.Session not in self.Support:
 			raise PM_Catcher_Error(
 					"Unsupported DESKTOP_SESSION `%s`; Private message Coil with this message to request support." % (
 						self.Session
